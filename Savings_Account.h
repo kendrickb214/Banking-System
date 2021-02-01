@@ -21,9 +21,6 @@ private:
     static constexpr double def_balance = 0.0;
     static constexpr double def_int_rate = 0.0;
 protected:
-protected:
-    std::string name;
-    double balance;
     double int_rate;
 public:
     Savings_Account(std::string name = def_name, double balance =def_balance, double int_rate = def_int_rate);
@@ -33,7 +30,7 @@ public:
     virtual void print(std::ostream &os) const override {
        os << "[Savings_Account: " << name << ": " << balance << ", " << int_rate << "%]";
     }
-    virtual ~Savings_Account(){}
+    virtual ~Savings_Account() = default;
     // Inherits the Account::withdraw methods
 };
 
