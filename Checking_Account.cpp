@@ -5,25 +5,14 @@
 #include "Checking_Account.h"
 
 Checking_Account::Checking_Account(std::string name, double balance)
-        : name{name}, balance{balance} {
+        : Account {name, balance} {
 }
 
 bool Checking_Account::withdraw(double amount) {
     amount += per_check_fee;
-    if (balance-amount >=0) {
-        balance-=amount;
-        return true;
-    } else
-        return false;
+    return Account::withdraw(amount);
 }
 
 bool Checking_Account::deposit(double amount) {
-if (amount < 0)
-  return false;
-  else {
- balance += amount;
- //std::cout << balance << std::endl;
- return true;
- }
+    return Account::deposit(amount);
 }
-
